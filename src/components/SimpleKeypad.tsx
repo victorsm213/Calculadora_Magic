@@ -1,7 +1,6 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Backspace, Divide, Minus, Plus, X } from "lucide-react";
+import { Delete, Divide, Minus, Plus, X } from "lucide-react";
 
 interface SimpleKeypadProps {
   onDigitClick: (digit: string) => void;
@@ -50,7 +49,7 @@ const SimpleKeypad: React.FC<SimpleKeypadProps> = ({
         className="bg-purple-50 hover:bg-purple-100"
         onClick={onBackspaceClick}
       >
-        <Backspace className="h-4 w-4" />
+        <Delete className="h-4 w-4" />
       </Button>
 
       <Button
