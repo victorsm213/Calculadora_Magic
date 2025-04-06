@@ -5,6 +5,7 @@ import { ArrowLeft, Star, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { products } from "../data/products";
 import { useCart } from "../context/CartContext";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -34,11 +35,14 @@ const ProductDetailPage: React.FC = () => {
 
       <div className="grid gap-8 md:grid-cols-2">
         <div className="overflow-hidden rounded-lg border bg-white">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="h-full w-full object-contain p-8"
-          />
+          <AspectRatio ratio={1 / 1} className="bg-white">
+            <img
+              src={product.image}
+              alt={product.name}
+              className="h-full w-full object-contain p-8"
+              loading="lazy"
+            />
+          </AspectRatio>
         </div>
 
         <div className="space-y-6">

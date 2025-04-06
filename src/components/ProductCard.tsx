@@ -6,6 +6,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Product } from "../types/product";
 import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 interface ProductCardProps {
   product: Product;
@@ -18,11 +19,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <Card className="overflow-hidden transition-all hover:shadow-lg">
       <Link to={`/product/${product.id}`}>
         <div className="aspect-square w-full overflow-hidden">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="h-full w-full object-cover transition-transform hover:scale-105"
-          />
+          <AspectRatio ratio={1 / 1} className="bg-white">
+            <img
+              src={product.image}
+              alt={product.name}
+              className="h-full w-full object-contain p-4"
+              loading="lazy"
+            />
+          </AspectRatio>
         </div>
         <CardHeader className="p-4 pb-0">
           <div className="flex items-center justify-between">
